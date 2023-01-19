@@ -1,26 +1,28 @@
 let nbNotes=0, noteMax=0, noteMin=20, moyNotes=0, displayMax, displayWorse, displayMoy;
 
-nbNotes = prompt("Combien de notes souhaitez-vous saisir ?");
+addNotes = () => {
+    nbNotes = prompt("Combien de notes souhaitez-vous saisir ?");
 
-for(i=0; i<nbNotes; i++) {
-    let note = Number(prompt(`Veuillez saisir la note ${i+1}`))
-
-    //moyenne
-    moyNotes += note;
-
-    //note max
-    if(note>noteMax) {
-        noteMax = note
+    for(i=0; i<nbNotes; i++) {
+        let note = Number(prompt(`Veuillez saisir la note ${i+1}`))
+    
+        //moyenne
+        moyNotes += note;
+    
+        //note max
+        if(note>noteMax) {
+            noteMax = note
+        }
+    
+        //note min
+        if(note<noteMin) {
+            noteMin = note
+        }
+    
+        const oneNote = document.querySelector("#onenote");
+        oneNote.innerHTML += `<p>Note saisie : ${note} </p>`
+    
     }
-
-    //note min
-    if(note<noteMin) {
-        noteMin = note
-    }
-
-    const oneNote = document.querySelector("#onenote");
-    oneNote.innerHTML += `<p>Note saisie : ${note} </p>`
-
 }
 
 // Calc moyenne
